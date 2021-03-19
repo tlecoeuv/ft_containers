@@ -1,0 +1,28 @@
+
+					FT_CONTAINERS:
+
+https://github.com/pmouhali/ft_containers (bonnes infos dans le Readme pour list).
+https://github.com/yadvendra20/STL-Implementation
+https://cs.calvin.edu/activities/books/c++/intro/3e/WebItems/
+
+| | Lire attentivement la documentation des containers suivants,
+	et réaliser une to_do_list pour chacun d'entre eux:
+
+	| | List.
+	| | Vector.
+	| | Map.
+	| | Stack.
+	| | Queue.
+
+| | Les coder à l'aide de la to_do_list réalisée:
+
+	| | List.
+	| | Vector.
+	| | Map.
+	| | Stack.
+	| | Queue.
+
+| | Bien lire la documentation des itérateurs pour les coder.
+
+|V| Trouver à quoi servent les allocators, et faut il les gérers.
+	-http://casteyde.christian.free.fr/cpp/cours/online/x5348.html

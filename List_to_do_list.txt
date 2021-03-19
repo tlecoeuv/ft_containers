@@ -1,0 +1,63 @@
+
+							LIST:
+
+Infos:
+-double link list, on peut itérer dans les deux sens.
+-http://sdz.tdct.org/sdz/les-listes-circulaires-doublement-chainees-en-c.html
+-iterator, begin()(peut être pas) et end() pointent sur la racine.
+-https://codefreakr.com/how-is-c-stl-list-implemented-internally/
+-https://cs.calvin.edu/activities/books/c++/intro/3e/WebItems/Ch14-Web/STL-List-14.4.pdf
+
+
+to_do_list:
+
+*| |commencer le template, définir la structure d'un node.
+
+*Méthodes:
+-| |basiques:
+	| | Constructeur par défaut.
+	| | Destructeur.
+	| | operator=.
+
+-| |iterators things:
+	[...]
+
+-| |Capacity:
+	| | Empty.
+	| | Size.
+	| | max_size.
+
+-| |Element access:
+	| |front.
+	| |back.
+
+-| |Modifiers
+	| | assign.
+	| | push_front.
+	| | pop_front.
+	| | push_back.
+	| | pop_back.
+	| | insert.
+	| | erase.
+	| | swap.
+	| | resize.
+	| | clear.
+
+-| |Operations:
+	| | splice:
+	| | remove.
+	| | remove_if.
+	| | unique.
+	| | merge.
+	| | sort.
+	| | reverse.
+
+-| |Non-member function overloads:
+	| | relational operators:
+		| | ==.
+		| | !=.
+		| | <.
+		| | <=.
+		| | >.
+		| | >=.
+	| | swap.
