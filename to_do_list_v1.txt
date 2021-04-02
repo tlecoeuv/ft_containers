@@ -5,10 +5,13 @@ https://github.com/pmouhali/ft_containers (bonnes infos dans le Readme pour list
 https://github.com/yadvendra20/STL-Implementation
 https://cs.calvin.edu/activities/books/c++/intro/3e/WebItems/
 
+
+http://www.cplusplus.com/reference/memory/allocator_traits/
+
 | | Lire attentivement la documentation des containers suivants,
 	et réaliser une to_do_list pour chacun d'entre eux:
 
-	| | List.
+	|V| List.
 	| | Vector.
 	| | Map.
 	| | Stack.
@@ -25,4 +28,5 @@ https://cs.calvin.edu/activities/books/c++/intro/3e/WebItems/
 | | Bien lire la documentation des itérateurs pour les coder.
 
 |V| Trouver à quoi servent les allocators, et faut il les gérers.
+	-http://www.cplusplus.com/reference/memory/allocator_traits/
 	-http://casteyde.christian.free.fr/cpp/cours/online/x5348.html

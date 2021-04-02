@@ -4,7 +4,7 @@
 Infos:
 -double link list, on peut itérer dans les deux sens.
 -http://sdz.tdct.org/sdz/les-listes-circulaires-doublement-chainees-en-c.html
--iterator, begin()(peut être pas) et end() pointent sur la racine.
+-iterator, begin()(si list vide, sinon sur  1er node) et end() pointent sur la racine.
 -https://codefreakr.com/how-is-c-stl-list-implemented-internally/
 -https://cs.calvin.edu/activities/books/c++/intro/3e/WebItems/Ch14-Web/STL-List-14.4.pdf
 
@@ -14,34 +14,38 @@ to_do_list:
 *| |commencer le template, définir la structure d'un node.
 
 *Méthodes:
--| |basiques:
-	| | Constructeur par défaut.
-	| | Destructeur.
-	| | operator=.
+-|V|basiques:
+	| | Constructeurs.
+	|V| Destructeur.
+	|V| operator=.
 
--| |iterators things:
-	[...]
+-| |iterators:
+	|V| begin.
+	|V| end.
+	|V| rbegin.
+	|V| rend.
+	| | const.
 
--| |Capacity:
-	| | Empty.
-	| | Size.
-	| | max_size.
+-|V|Capacity:
+	|V| Empty.
+	|V| Size.
+	|V| max_size.
 
--| |Element access:
-	| |front.
-	| |back.
+-|V|Element access:
+	|V|front.
+	|V|back.
 
 -| |Modifiers
-	| | assign.
-	| | push_front.
-	| | pop_front.
-	| | push_back.
-	| | pop_back.
-	| | insert.
-	| | erase.
+	|V| assign.
+	|V| push_front.
+	|V| pop_front.
+	|V| push_back.
+	|V| pop_back.
+	|V| insert.
+	|V| erase.
 	| | swap.
 	| | resize.
-	| | clear.
+	|V| clear.
 
 -| |Operations:
 	| | splice:

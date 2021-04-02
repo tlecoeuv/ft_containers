@@ -1,0 +1,29 @@
+
+| |classique Iterator:
+| |Constructeurs:
+	|V|default.
+	| |copy.
+	|V| =.
+
+|V|Destructeur.
+
+comparaison:
+	|V| ==.
+	|V| !=.
+
+dereferencement:
+	|V| *.
+	| | ->m. le comprendre.
+
+incrementation et decrementation:
+	|V|++a.
+	|V|a++.
+	| |*a++;
+	|V|--a.
+	|V|a--.
+	| |*a--;
+
+
+| |const_iterator
+| |reverse_iterator
+| |const_reverse_iterator
