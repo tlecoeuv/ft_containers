@@ -4,11 +4,11 @@
 namespace ft
 {
 	template <typename T>
-	struct	ListNode
+	struct	listNode
 	{
 		T				*data;
-		ListNode<T>		*next;
-		ListNode<T> 	*previous;
+		listNode<T>		*next;
+		listNode<T> 	*previous;
 	};
 };
 
