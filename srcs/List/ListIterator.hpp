@@ -19,7 +19,7 @@ namespace ft
 
 		~listIterator() {}
 
-		T		operator*(void) const
+		T		&operator*(void) const
 		{
 			return (*(_node->data));
 		}
@@ -89,7 +89,7 @@ namespace ft
 
 		~constlistIterator() {}
 
-		const T		operator*(void) const
+		const T		&operator*(void) const
 		{
 			return (*(_node->data));
 		}
@@ -155,7 +155,7 @@ namespace ft
 
 		~ReverselistIterator() {}
 
-		T		operator*(void) const
+		T		&operator*(void) const
 		{
 			return (*(_node->data));
 		}
@@ -221,7 +221,7 @@ namespace ft
 
 		~constReverselistIterator() {}
 
-		const T		operator*(void) const
+		const T		&operator*(void) const
 		{
 			return (*(_node->data));
 		}
@@ -275,18 +275,6 @@ namespace ft
 
 		listNode<T>		*_node;
 	};
-
-	template <class InputIt>
-	size_t		distance(InputIt first, InputIt last)
-	{
-		size_t	dist = 0;
-		while (first != last)
-		{
-			first++;
-			dist++;
-		}
-		return(dist);
-	}
 };
 
 #endif

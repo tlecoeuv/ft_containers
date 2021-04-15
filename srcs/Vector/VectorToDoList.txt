@@ -1,0 +1,46 @@
+
+						VECTOR:
+
+-|V|constructeurs:
+	|V|(1)default.
+	|V|(2)(3)count, value.
+	|V|(5)it.
+	|V|(6)copy.
+
+-|V|destructeur.
+
+-|V|operator=.
+
+-|V|assign.
+
+-|V|Element access:
+	|V|at.
+	|V|operator[].
+	|V|front.
+	|V|back.
+
+-| |iterators:
+	|V|begin.
+	|V|end.
+	| |rbegin
+	| |rend.
+
+-|V|Capacity:
+	|V|empty.
+	|V|size.
+	|V|max_size.
+	|V|reserve.
+	|V|capacity.
+
+-| |Modifiers:
+	|V|clear.
+	| |insert.
+	| |erase.
+	| |push_back.
+	| |pop_back.
+	| |resize.
+	| |swap.
+
+-| |Non-member functions:
+	| |operators.
+	| |swap.

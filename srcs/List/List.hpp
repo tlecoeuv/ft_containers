@@ -7,6 +7,7 @@
 #include <iostream>
 #include "ListNode.hpp"
 #include "ListIterator.hpp"
+#include "../utils/iteratorUtils.hpp"
 
 namespace ft
 {
