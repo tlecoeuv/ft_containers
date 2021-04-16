@@ -269,6 +269,68 @@ namespace	ft
 			for (size_type i = 0; i < _size; i++)
 				_alloc.destroy(&_tab[i]);
 			_size = 0;
+		};
+
+		iterator	insert(iterator pos, const T& value)
+		{
+			size_t dist = distance(begin(), pos);
+
+			if (_capacity == 0)
+				reserve(1);
+			else if ((_size + 1) > _capacity)
+				reserve(_size * 2);
+			_size++;
+			for (size_t i = _size - 1; i > dist; i--)
+				_tab[i] = _tab[i - 1];
+			_alloc.construct(&_tab[dist], value);
+			return(iterator(_tab + dist));
+		};
+
+		void 		insert(iterator pos, size_type count, const T& value)
+		{
+			if (count == 0)
+				return ;
+			size_t dist = distance(begin(), pos);
+			if ((_size + count) > _capacity)
+			{
+				if ((_size * 2) >= (_size + count))
+					reserve(_size * 2);
+				else
+					reserve(_size + count);
+			}
+			_size += count;
+			for (size_t i = _size - 1; i >= dist + count; i--)
+				_tab[i] = _tab[i - count];
+			for (size_t i = (dist + count - 1); i > dist; i--)
+				_alloc.construct(&_tab[i], value);
+			_alloc.construct(&_tab[dist], value);
+		}
+
+		template <class InputIt>
+		void 		insert(iterator pos, InputIt first, InputIt last)
+		{
+			size_t dist = distance(begin(), pos);
+			size_t count = distance(first, last);
+			if (count == 0)
+				return ;
+
+			if ((_size + count) > _capacity)
+			{
+				if ((_size * 2) >= (_size + count))
+					reserve(_size * 2);
+				else
+					reserve(_size + count);
+			}
+			_size += count;
+			for (size_t i = _size - 1; i >= dist + count; i--)
+				_tab[i] = _tab[i - count];
+			for (size_t i = (dist + count - 1); i > dist; i--)
+			{
+				last--;
+				_alloc.construct(&_tab[i], *last);
+			}
+			last--;
+			_alloc.construct(&_tab[dist], *last);
 		}
 
 
