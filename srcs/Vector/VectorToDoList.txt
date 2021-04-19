@@ -32,15 +32,15 @@
 	|V|reserve.
 	|V|capacity.
 
--| |Modifiers:
+-|V|Modifiers:
 	|V|clear.
-	| |insert.
-	| |erase.
-	| |push_back.
-	| |pop_back.
-	| |resize.
-	| |swap.
+	|V|insert.
+	|V|erase.
+	|V|push_back.
+	|V|pop_back.
+	|V|resize.
+	|V|swap.
 
--| |Non-member functions:
-	| |operators.
-	| |swap.
+-|V|Non-member functions:
+	|V|operators.
+	|V|swap.

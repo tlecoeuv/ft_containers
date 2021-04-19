@@ -5,13 +5,13 @@
 #include "Vector.hpp"
 
 template <class T>
-void 	print_vector(std::vector<T> vec)
+void 	print_vector(const std::vector<T> &vec)
 {
 	for (typename std::vector<T>::const_iterator it = vec.begin(); it != vec.end(); it++)
 	   std::cout << "|"<< *it << "| ";
 	std::cout << std::endl;
-	std::cout << "capacity: " << vec.capacity()
-				<< " size: " << vec.size() <<std::endl;
+	std::cout << "capacity: " << vec.capacity() << std::endl;
+	std::cout << "size: " << vec.size() << std::endl;
 }
 
 int		main()
@@ -98,6 +98,49 @@ int		main()
 	print_vector(vec1);
 	vec1.insert(vec1.end(), vec1Copy.begin(), vec1Copy.end());
 	print_vector(vec1);
+
+	std::cout << "erase :" << std::endl;
+
+	std::vector<int>::const_iterator itRet3 = vec1.erase(vec1.begin());
+	std::cout << "it ret:" << *itRet3 << std::endl;
+	print_vector(vec1);
+
+	std::vector<int>::iterator itErase = vec1.end();
+	itErase -= 10;
+	itRet = vec1.erase(vec1.begin(), itErase);
+	std::cout << "it ret:" << *itRet << std::endl;
+	print_vector(vec1);
+
+	std::cout << "push_back: " << std::endl;
+
+	vec1.push_back(21);
+	vec1.push_back(22);
+	print_vector(vec1);
+
+	std::vector<int> vecPB;
+	vecPB.push_back(1);
+	vecPB.push_back(2);
+	vecPB.push_back(3);
+	print_vector(vecPB);
+
+	vecPB.pop_back();
+	vecPB.pop_back();
+	print_vector(vecPB);
+
+	std::cout << "resize: " << std::endl;
+
+	vec1.resize(6);
+	print_vector(vec1);
+	vec1.resize(12, 12);
+	print_vector(vec1);
+
+	std::cout << "swap: " << std::endl;
+
+	vec1.swap(vecPB);
+	std::cout << "vec1: " << std::endl;
+	print_vector(vec1);
+	std::cout << "vecPB: " << std::endl;
+	print_vector(vecPB);
 
 	return (0);
 }
