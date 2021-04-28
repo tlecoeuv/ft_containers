@@ -1,0 +1,59 @@
+
+				Binary search tree:
+
+
+
+*tree in general:
+https://www.youtube.com/watch?v=H5JubkIy_p8&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=26
+
+root.
+children.
+parent.
+sibling = same parent.
+leaf = has no child.
+cousins = same grand parent but not same parent.
+uncle.
+
+
+if we can go from a to b:	-a is ancestor of b.
+							-b is descendant of a.
+
+depth of x = length of the path from root to x. (length = nb of edges.
+
+heigth of x = nb of edges in longest path from x to a leaf node.
+
+*binary tree in general:
+https://www.youtube.com/watch?v=H5JubkIy_p8&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=26
+
+left and right child.
+node at the same level have the same depth.
+max nb of nodes at level i = 2^i
+
+max nb of node in a tree of heigth h:	= 2^0 + 2^1 + ... + 2^h
+										= 2^(h+1) - 1.
+										= 2^(nb of levels) - 1.
+ min h with n nodes: = log2(n).
+ max h with n nodes: = n - 1.
+
+ plus optimisé: arbre dense, donc proche de h = log2(n).
+
+ h of an empty tree = -1.???
+ h of tree with 1 node = 0.???
+
+ *binary search tree:
+ https://www.youtube.com/watch?v=pYT9F8_LFTM&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=27
+
+value of all the nodes in left subtree is lesser or equal,
+and all the nodes in the right subtree greater.
+
+https://www.youtube.com/watch?v=COZK7NATh4k&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=28
+Implementation^
+
+*red black tree:
+https://www.youtube.com/watch?v=qvZGUFHWChY&list=PL9xmBV_5YoZNqDI8qfOZgzbqahCUmUEin&index=1
+https://iq.opengenus.org/tag/red-black-tree/
+https://gist.github.com/SubCoder1/70c2cedc44353ffc539c7567b1051028
+
+https://gcc.gnu.org/onlinedocs/libstdc++/libstdc++-html-USERS-4.1/stl__tree_8h-source.html
+
+Rotation:

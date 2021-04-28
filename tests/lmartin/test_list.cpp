@@ -6,7 +6,7 @@
 /*   By: lmartin <lmartin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 04:32:26 by lmartin           #+#    #+#             */
-/*   Updated: 2021/04/12 12:50:06 by tlecoeuv         ###   ########.fr       */
+/*   Updated: 2021/04/19 17:17:25 by tlecoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <list>
 #include "colors.h"
 #include "utils.hpp"
-#include "../../List/List.hpp"
+#include "../../srcs/List/List.hpp"
 
 template <class T>
 void	error_diff(ft::list<T> mylist, std::list<T> list)

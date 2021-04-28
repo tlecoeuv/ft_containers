@@ -1,0 +1,62 @@
+
+						MAP to do list:
+
+*|V|comprendre les arbres binaires et trouver des liens:
+	https://en.wikipedia.org/wiki/Red%E2%80%93black_tree
+
+*|V|Pair: comprendre.
+		utiliser la pair de la std.
+
+*| |RedBlackTree:
+Créer un Red black tree avec des méthodes etc,
+	| |structure de base, constructeur, destructeurs.
+	| |Insertion.
+	| |Deletion.
+	| |Search.
+
+
+*| |Member classes:
+	| |value_compare.
+
+*| |Member functions:
+	| |Constructors:
+		| |default.
+		| |copy.
+		| |it.
+	| |Destructor.
+	| |operator=.
+
+*| |Element access:
+	| |operator[].
+
+*| |iterators
+	| |begin.
+	| |end.
+	| |rbegin.
+	| |rend.
+
+*| |Capacity:
+	| |empty.
+	| |size.
+	| |max_size.
+
+*| |Modifiers:
+	| |clear.
+	| |insert.
+	| |erase.
+	| |swap.
+
+*| |Lookup:
+	| |count.
+	| |find.
+	| |equal_range.
+	| |lower_bound.
+	| |upper_bound.
+
+*| |Observers:
+	| |key_comp.
+	| |value_comp.
+
+*| |Non-member functions:
+	| |operators.
+	| |swap.
