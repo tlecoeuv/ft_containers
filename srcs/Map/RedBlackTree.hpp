@@ -53,6 +53,14 @@ namespace	ft
 				return nullptr;
 			return (parent->sibling());
 		}
+
+		bool			is_leaf(void)
+		{
+			if (pair == nullptr)
+				return (true);
+			else
+				return (false);
+		}
 	};
 
 	template<
@@ -82,26 +90,60 @@ namespace	ft
 		RedBlackTree(const key_compare& comp = key_compare(),
 			const allocator_type &alloc = allocator_type())
 			: _alloc(alloc), _comp(comp), _root(nullptr)
-		{};
+		{}
 
 		~RedBlackTree(void)
-		{};
+		{
+			destructor_helper(_root);
+		}
 
 	public:
 
 		node	*new_node(const value_type &p, color c)
 		{
 			node	*res = new node;
+			node	*leaf1 = new node;
+			node	*leaf2 = new node;
 
 			res->pair = _alloc.allocate(1);
 			_alloc.construct(res->pair, p);
+			leaf1->pair = nullptr;
+			leaf2->pair = nullptr;
 
 			res->parent = nullptr;
-			res->left = nullptr;
-			res->right = nullptr;
+			leaf1->parent = res;
+			leaf2->parent = res;
+
+			res->left = leaf1;
+			res->right = leaf2;
+			leaf1->left = nullptr;
+			leaf1->right = nullptr;
+			leaf2->left = nullptr;
+			leaf2->right = nullptr;
+
 			res->color = c;
+			leaf1->color = BLACK;
+			leaf2->color = BLACK;
 
 			return (res);
+		}
+
+		/* search */
+
+		node	*search_node(key_type k)
+		{
+			node	*n = _root;
+			while (!n->is_leaf())
+			{
+				int	comp_result = _comp(k, n->pair->first);
+				if (k == n->pair->first)
+					return (n);
+				else if (comp_result == true)
+					n = n->left;
+				else
+					n = n->right;
+			}
+			return (n);
 		}
 
 		void 	replace_node(node *oldn, node *newn)
@@ -115,8 +157,7 @@ namespace	ft
 				else
 					oldn->parent->right = newn;
 			}
-			if (newn != nullptr)
-				newn->parent = oldn->parent;
+			newn->parent = oldn->parent;
 		}
 
 		void 	left_rotate(node *n)
@@ -198,8 +239,9 @@ namespace	ft
 					}
 					else if (comp_result == true)
 					{
-						if (n->left == nullptr)
+						if (n->left->is_leaf())
 						{
+							delete n->left;
 							n->left = inserted_node;
 							break ;
 						}
@@ -208,8 +250,9 @@ namespace	ft
 					}
 					else
 					{
-						if (n->right == nullptr)
+						if (n->right->is_leaf())
 						{
+							delete n->right;
 							n->right = inserted_node;
 							break ;
 						}
@@ -276,6 +319,182 @@ namespace	ft
 				left_rotate(n->grandparent());
 		}
 
+		/* Deletion: https://www.youtube.com/watch?v=eO3GzpCCUSg */
+
+		void 	delete_node(node *n)
+		{
+			color	n_color = n->color;
+			node	*replacement;
+			node	*x;
+
+			if (n->left->is_leaf() && n->right->is_leaf())
+			{
+				replacement = x = n->right;
+				delete n->left;
+				n->left = nullptr;
+			}
+			else if (!n->left->is_leaf() && n->right->is_leaf())
+			{
+				replacement = x = n->left;
+				delete n->right;
+				n->right = nullptr;
+			}
+			else if (!n->right->is_leaf() && n->left->is_leaf())
+			{
+				replacement = x = n->right;
+				delete n->left;
+				n->left = nullptr;
+			}
+			else
+			{
+				replacement = n->right;
+				while (!replacement->left->is_leaf())
+					replacement = replacement->left;
+				x = replacement->right;
+			}
+			delete_and_replace(n, replacement, x);
+			initial_step2(replacement, x, n_color);
+		}
+
+		void 	delete_and_replace(node *n, node *replacement, node *x)
+		{
+			if (replacement->is_leaf() && x->is_leaf())
+				replace_node(n, replacement);
+			else if (replacement == x)
+				replace_node(n, replacement);
+			else								//peut etre leaks.
+			{
+				replace_node(replacement, x);
+				replace_node(n, replacement);
+				delete replacement->left;
+				replacement->left = n->left;
+				replacement->right = n->right;
+				replacement->left->parent = replacement;
+				replacement->right->parent = replacement;
+			}
+			_alloc.deallocate(n->pair, 1);
+			delete n;
+			n = nullptr;
+		}
+
+		void 	initial_step2(node *replacement, node *x, color n_color)
+		{
+			if (n_color == RED)
+			{
+				if (replacement->is_leaf() || replacement->color == RED)
+					return ;
+				else
+					replacement->color = RED;
+			}
+			else if (n_color == BLACK
+					&& (!replacement->is_leaf() && replacement->color == RED))
+			{
+				replacement->color = BLACK;
+				return ;
+			}
+			choose_case(x);
+		}
+
+		void 	choose_case(node *x)
+		{
+			node	*w = x->sibling();
+
+			if (x->color == RED)
+				delete_case0(x);
+			else
+			{
+				if (w->color == RED)
+					delete_case1(x, w);
+				else
+				{
+					if (w->left->color == BLACK && w->right->color == BLACK)
+						delete_case2(x, w);
+					else if ((x == x->parent->left && w->right->color == RED)
+						|| (x == x->parent->right && w->left->color == RED))
+						delete_case4(x, w);
+					else
+						delete_case3(x, w);
+				}
+			}
+		}
+
+		void 	delete_case0(node *x)
+		{
+			x->color = BLACK;
+		}
+
+		void 	delete_case1(node *x, node *w)
+		{
+			w->color = BLACK;
+			x->parent->color = RED;
+			if (x == x->parent->left)
+				left_rotate(x->parent);
+			else
+				right_rotate(x->parent);
+			choose_case(x);
+		}
+
+		void 	delete_case2(node *x, node *w)
+		{
+			w->color = RED;
+			x = x->parent;
+			if (x->color == RED)
+				x->color = BLACK;
+			else
+				choose_case(x);
+		}
+
+		void 	delete_case3(node *x, node *w)
+		{
+			w->color = RED;
+			if (x == x->parent->left)
+			{
+				w->left->color = BLACK;
+				right_rotate(w);
+			}
+			else
+			{
+				w->right->color = BLACK;
+				left_rotate(w);
+			}
+			w = x->sibling();
+			delete_case4(x, w);
+		}
+
+		void 	delete_case4(node *x, node *w)
+		{
+			w->color = x->parent->color;
+			x->parent->color = BLACK;
+			if (x == x->parent->left)
+			{
+				w->right->color = BLACK;
+				left_rotate(x->parent);
+			}
+			else
+			{
+				w->left->color = BLACK;
+				right_rotate(x->parent);
+			}
+		}
+
+		/* destroy: */
+
+		void 	destructor_helper(node *n)
+		{
+			if (n == nullptr)
+				return ;
+			if (n->right != nullptr)
+				destructor_helper(n->right);
+			if (n->left != nullptr)
+				destructor_helper(n->left);
+
+			if (n->pair != nullptr)
+				_alloc.deallocate(n->pair, 1);
+			delete n;
+			n = nullptr;
+		}
+
+
 		/* printer: */
 
 		void print_tree_helper(node *n, int indent)
@@ -291,8 +510,12 @@ namespace	ft
 		        print_tree_helper(n->right, indent + INDENT_STEP);
 		    }
 		    for(i = 0; i < indent; i++)
+			{
 		        fputs(" ", stdout);
-		    if (n->color == BLACK)
+			}
+			if (n->is_leaf())
+				std::cout << "L" << std::endl;
+		    else if (n->color == BLACK)
 		        std::cout<<n->pair->first<<std::endl;
 		    else
 		        std::cout<<"<"<<n->pair->first<<">"<<std::endl;

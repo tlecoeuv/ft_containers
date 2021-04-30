@@ -9,12 +9,27 @@
 
 *| |RedBlackTree:
 Créer un Red black tree avec des méthodes etc,
-	| |structure de base, constructeur, destructeurs.
-	| |Insertion.
-	| |Deletion.
-	| |Search.
+	|V|structure de base, constructeur, destructeurs.
+	|V|Insertion.
+	|V|Deletion.
+		|V|initial steps 1: find x.
+		|V|initial step 2.
+		---->pb quand x et nullptr pour déterminer les cas.
+			->de quoi a ton besoins?
+				-x sibling.
+				-x parent.
+			->solution? créer des leafs nodes, sans right/left ni pair, juste parents.
+				->chaque node a 2 leafs, qui sont remplacés quand ils ont un fils.
+		|V|case 0.
+		|V|case 1.
+		|V|case 2.
+		|V|case 3.
+		|V|case 4.
+	|V|Search.
+	|V|Destructeur.
+	| |segfault delete inexistant value.
 
-
+MAP:
 *| |Member classes:
 	| |value_compare.
 
