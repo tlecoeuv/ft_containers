@@ -143,7 +143,7 @@ namespace	ft
 				else
 					n = n->right;
 			}
-			return (n);
+			return (nullptr);
 		}
 
 		void 	replace_node(node *oldn, node *newn)
@@ -323,6 +323,8 @@ namespace	ft
 
 		void 	delete_node(node *n)
 		{
+			if (n == nullptr || n->is_leaf())
+				return ;
 			color	n_color = n->color;
 			node	*replacement;
 			node	*x;

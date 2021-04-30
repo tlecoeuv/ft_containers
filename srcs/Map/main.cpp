@@ -75,7 +75,7 @@ int		main()
 	test_tree.insert(std::pair<int, int>(7, 0));
 	test_tree.insert(std::pair<int, int>(9, 0));
 
-	ft::RBT_node<std::pair<const int, int>>	*to_delete = test_tree.search_node(2); //ex6.
+	ft::RBT_node<std::pair<const int, int>>	*to_delete = test_tree.search_node(10); //ex6.
 
 	test_tree.print_tree();
 	std::cout << "_________________________________________________________\n" << std::endl;

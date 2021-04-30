@@ -27,7 +27,7 @@ Créer un Red black tree avec des méthodes etc,
 		|V|case 4.
 	|V|Search.
 	|V|Destructeur.
-	| |segfault delete inexistant value.
+	|V|segfault delete inexistant value.
 
 MAP:
 *| |Member classes:
