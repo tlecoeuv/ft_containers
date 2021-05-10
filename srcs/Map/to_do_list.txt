@@ -7,7 +7,7 @@
 *|V|Pair: comprendre.
 		utiliser la pair de la std.
 
-*| |RedBlackTree:
+*|V|RedBlackTree:
 Créer un Red black tree avec des méthodes etc,
 	|V|structure de base, constructeur, destructeurs.
 	|V|Insertion.
@@ -28,6 +28,12 @@ Créer un Red black tree avec des méthodes etc,
 	|V|Search.
 	|V|Destructeur.
 	|V|segfault delete inexistant value.
+
+*| |Iterators:
+	| |iterator classique.
+	| |const iterator.
+	| |reverse_iterator.
+	| |const reverse_iterator.
 
 MAP:
 *| |Member classes:
@@ -57,7 +63,7 @@ MAP:
 
 *| |Modifiers:
 	| |clear.
-	| |insert.
+	|V|insert.
 	| |erase.
 	| |swap.
 

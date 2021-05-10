@@ -6,69 +6,18 @@
 #include <limits>
 #include <iostream>
 #include <cstdio>
+#include "RBT_node.hpp"
+#include "RBT_iterator.hpp"
 
 #define INDENT_STEP 4
 
 namespace	ft
 {
-	enum  	color
-	{
-		RED,
-		BLACK
-	};
-
-	template <class	Pair>
-	struct		RBT_node
-	{
-		color		color;
-		Pair		*pair;
-		RBT_node	*left;
-		RBT_node	*right;
-		RBT_node	*parent;
-
-		/* get relationnals: */
-
-		RBT_node		*grandparent(void)
-		{
-			if (parent == nullptr)
-				return nullptr;
-			return (parent->parent);
-		}
-
-		RBT_node		*sibling(void)
-		{
-			if (parent == nullptr)
-				return nullptr;
-			if (this == parent->left)
-				return (parent->right);
-			else
-				return (parent->left);
-		}
-
-		RBT_node		*uncle(void)
-		{
-			if (parent == nullptr)
-				return nullptr;
-			if (grandparent() == nullptr)
-				return nullptr;
-			return (parent->sibling());
-		}
-
-		bool			is_leaf(void)
-		{
-			if (pair == nullptr)
-				return (true);
-			else
-				return (false);
-		}
-	};
-
 	template<
 			class Key, class T,
 			class Compare = std::less<Key>,
 			class Allocator = std::allocator<std::pair<const Key, T>>
 			>
-
 	class	RedBlackTree
 	{
 		public:
@@ -85,16 +34,26 @@ namespace	ft
 		typedef	typename Allocator::pointer			pointer;
 		typedef	typename Allocator::const_pointer	const_pointer;
 
+		typedef	RBT_iterator<value_type>			iterator;
+
+
 		typedef	RBT_node<value_type>				node;
 
 		RedBlackTree(const key_compare& comp = key_compare(),
 			const allocator_type &alloc = allocator_type())
-			: _alloc(alloc), _comp(comp), _root(nullptr)
-		{}
+			: _alloc(alloc), _comp(comp)
+		{
+			_header = new node;
+			_header->color = RED;
+			_header->parent = nullptr;
+			_header->left = _header;
+			_header->right = _header;
+		}
 
 		~RedBlackTree(void)
 		{
-			destructor_helper(_root);
+			destructor_helper(_root());
+			delete _header;
 		}
 
 	public:
@@ -132,7 +91,7 @@ namespace	ft
 
 		node	*search_node(key_type k)
 		{
-			node	*n = _root;
+			node	*n = _root();
 			while (!n->is_leaf())
 			{
 				int	comp_result = _comp(k, n->pair->first);
@@ -149,7 +108,7 @@ namespace	ft
 		void 	replace_node(node *oldn, node *newn)
 		{
 			if (oldn->parent == nullptr)
-				_root = newn;
+				_header->parent = newn;
 			else
 			{
 				if (oldn == oldn->parent->left)
@@ -192,7 +151,7 @@ namespace	ft
 				x->right->parent = x;
 			y->parent = x->parent;
 			if (x->parent == nullptr)		//case x was root.
-				_root = y;
+				_root() = y;
 			else if (x == x->parent->left)	//case x is a left child.
 				x->parent->left = y;
 			else							//case x is a right child.
@@ -210,7 +169,7 @@ namespace	ft
 				x->left->parent = x;
 			y->parent = x->parent;
 			if (x->parent == nullptr)
-				_root = y;
+				_root() = y;
 			else if (x == x->parent->left)
 				x->parent->left = y;
 			else
@@ -221,22 +180,23 @@ namespace	ft
 
 		/*Insertion: https://iq.opengenus.org/red-black-tree-insertion/ */
 
-		void 	insert(const value_type &p)
+		std::pair<iterator, bool> 	insert(const value_type &p)
 		{
 			node	*inserted_node = new_node(p, RED);
-			if (_root == nullptr)
-				_root = inserted_node;
+			if (_root() == nullptr)
+			{
+				_header->parent = inserted_node;
+				_header->right = inserted_node;
+				_header->left = inserted_node;
+			}
 			else
 			{
-				node	*n = _root;
+				node	*n = _root();
 				while (1)
 				{
 					int		comp_result = _comp(p.first, n->pair->first);
 					if (p.first == n->pair->first)
-					{
-						std::cout << "key already exist" << std::endl;
-						return ;
-					}
+						return (std::make_pair(iterator(n, _header), false));
 					else if (comp_result == true)
 					{
 						if (n->left->is_leaf())
@@ -261,8 +221,13 @@ namespace	ft
 					}
 				}
 				inserted_node->parent = n;
+				if (n == _rightmost() && inserted_node == n->right)
+					_header->right = inserted_node;
+				else if (n == _leftmost() && inserted_node == n->left)
+					_header->left = inserted_node;
 			}
 			insert_case1(inserted_node);
+			return (std::make_pair(iterator(inserted_node, _header), true));
 		}
 
 		void 	insert_case1(node *n)
@@ -328,6 +293,11 @@ namespace	ft
 			color	n_color = n->color;
 			node	*replacement;
 			node	*x;
+
+			if (n == _leftmost())
+				_header->left = n->parent;
+			else if (n == _rightmost())
+				_header->right = n->parent;
 
 			if (n->left->is_leaf() && n->right->is_leaf())
 			{
@@ -479,6 +449,18 @@ namespace	ft
 			}
 		}
 
+		/* iterator functions: */
+
+		iterator		begin(void)
+		{
+			return (iterator(_leftmost(), _header));
+		}
+
+		iterator		end(void)
+		{
+			return(iterator(_header, _header));
+		}
+
 		/* destroy: */
 
 		void 	destructor_helper(node *n)
@@ -495,7 +477,6 @@ namespace	ft
 			delete n;
 			n = nullptr;
 		}
-
 
 		/* printer: */
 
@@ -529,14 +510,33 @@ namespace	ft
 
 		void print_tree(void)
 		{
-		    print_tree_helper(_root, 0);
+		    print_tree_helper(_root(), 0);
+			std::cout << "right: " << _rightmost()->pair->first << std::endl;
+			std::cout << "left: " << _leftmost()->pair->first << std::endl;
 		    puts("");
+		}
+
+	private:
+
+		node 	*_root(void)
+		{
+			return (_header->parent);
+		}
+
+		node	*_leftmost(void)
+		{
+			return (_header->left);
+		}
+
+		node	*_rightmost(void)
+		{
+			return (_header->right);
 		}
 
 
 		allocator_type	_alloc;
 		key_compare		_comp;
-		node			*_root;
+		node			*_header;
 	};
 };
 
