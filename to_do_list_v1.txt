@@ -12,16 +12,16 @@ http://www.cplusplus.com/reference/memory/allocator_traits/
 	et réaliser une to_do_list pour chacun d'entre eux:
 
 	|V| List.
-	| | Vector.
-	| | Map.
+	|V| Vector.
+	|V| Map.
 	| | Stack.
 	| | Queue.
 
 | | Les coder à l'aide de la to_do_list réalisée:
 
-	| | List.
-	| | Vector.
-	| | Map.
+	|V| List.
+	|V| Vector.
+	|V| Map.
 	| | Stack.
 	| | Queue.
 

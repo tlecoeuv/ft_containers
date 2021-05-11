@@ -29,12 +29,6 @@ Créer un Red black tree avec des méthodes etc,
 	|V|Destructeur.
 	|V|segfault delete inexistant value.
 
-*| |Iterators:
-	| |iterator classique.
-	| |const iterator.
-	| |reverse_iterator.
-	| |const reverse_iterator.
-
 MAP:
 *| |Member classes:
 	| |value_compare.
@@ -47,25 +41,25 @@ MAP:
 	| |Destructor.
 	| |operator=.
 
-*| |Element access:
-	| |operator[].
+*|V|Element access:
+	|V|operator[].
 
-*| |iterators
-	| |begin.
-	| |end.
-	| |rbegin.
-	| |rend.
+*|V|iterators
+	|V|begin.
+	|V|end.
+	|V|rbegin.
+	|V|rend.
 
 *| |Capacity:
-	| |empty.
-	| |size.
+	|V|empty.
+	|V|size.
 	| |max_size.
 
 *| |Modifiers:
 	| |clear.
 	|V|insert.
-	| |erase.
-	| |swap.
+	|V|erase.
+	|V|swap.
 
 *| |Lookup:
 	| |count.

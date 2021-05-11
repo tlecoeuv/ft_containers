@@ -118,7 +118,6 @@ namespace ft
 			return (_it[-n - 1]);
 		};
 
-		private:
 
 		Iter	_it;
 	};

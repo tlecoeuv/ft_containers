@@ -16,7 +16,7 @@ namespace	ft
 	template<
 			class Key, class T,
 			class Compare = std::less<Key>,
-			class Allocator = std::allocator<std::pair<const Key, T>>
+			class Allocator = std::allocator<std::pair<const Key, T> >
 			>
 	class	RedBlackTree
 	{
@@ -34,14 +34,17 @@ namespace	ft
 		typedef	typename Allocator::pointer			pointer;
 		typedef	typename Allocator::const_pointer	const_pointer;
 
-		typedef	RBT_iterator<value_type>			iterator;
+		typedef	RBT_iterator<value_type>				iterator;
+		typedef	RBT_const_iterator<value_type>			const_iterator;
+		typedef	ft::reverse_iterator<iterator>			reverse_iterator;
+		typedef	ft::reverse_iterator<const_iterator>	const_reverse_iterator;
 
 
 		typedef	RBT_node<value_type>				node;
 
 		RedBlackTree(const key_compare& comp = key_compare(),
 			const allocator_type &alloc = allocator_type())
-			: _alloc(alloc), _comp(comp)
+			: _alloc(alloc), _comp(comp), _node_count(0)
 		{
 			_header = new node;
 			_header->color = RED;
@@ -141,43 +144,6 @@ namespace	ft
 			n->parent = L;
 		}
 
-		/* Rotation: https://www.youtube.com/watch?v=95s3ndZRGbk */
-		/*void 	left_rotate(node *x)
-		{
-			node	*y = x->right;
-
-			x->right = y->left;			//y's left subtree -> x's right subtree.
-			if (x->right != nullptr)		//handle parent links.
-				x->right->parent = x;
-			y->parent = x->parent;
-			if (x->parent == nullptr)		//case x was root.
-				_root() = y;
-			else if (x == x->parent->left)	//case x is a left child.
-				x->parent->left = y;
-			else							//case x is a right child.
-				x->parent->right = y;
-			y->left = x;					//put x on y's left.
-			x->parent = y;					//parent's links.
-		}
-
-		void 	right_rotate(node *x)
-		{
-			node	*y = x->left;
-
-			x->left = y->right;
-			if (x->left != nullptr)
-				x->left->parent = x;
-			y->parent = x->parent;
-			if (x->parent == nullptr)
-				_root() = y;
-			else if (x == x->parent->left)
-				x->parent->left = y;
-			else
-				x->parent->right = y;
-			y->right = x;
-			x->parent = y;
-		}*/
-
 		/*Insertion: https://iq.opengenus.org/red-black-tree-insertion/ */
 
 		std::pair<iterator, bool> 	insert(const value_type &p)
@@ -227,6 +193,7 @@ namespace	ft
 					_header->left = inserted_node;
 			}
 			insert_case1(inserted_node);
+			_node_count++;
 			return (std::make_pair(iterator(inserted_node, _header), true));
 		}
 
@@ -326,6 +293,12 @@ namespace	ft
 			}
 			delete_and_replace(n, replacement, x);
 			initial_step2(replacement, x, n_color);
+			_node_count--;
+			if (_node_count == 0)
+			{
+				_header->left = _header;
+				_header->right = _header;
+			}
 		}
 
 		void 	delete_and_replace(node *n, node *replacement, node *x)
@@ -456,9 +429,26 @@ namespace	ft
 			return (iterator(_leftmost(), _header));
 		}
 
+		const_iterator	begin(void) const
+		{
+			return (const_iterator(_leftmost(), _header));
+		}
+
 		iterator		end(void)
 		{
 			return(iterator(_header, _header));
+		}
+
+		const_iterator	end(void) const
+		{
+			return(const_iterator(_header, _header));
+		}
+
+		/* clear: */
+
+		void 	clear(void)
+		{
+			destructor_helper(_root());
 		}
 
 		/* destroy: */
@@ -476,6 +466,22 @@ namespace	ft
 				_alloc.deallocate(n->pair, 1);
 			delete n;
 			n = nullptr;
+		}
+
+		/* swap: */
+
+		void 	swap(RedBlackTree& other)
+		{
+			size_type		tmp_node_count;
+			node			*tmp_header;
+
+			tmp_node_count = other._node_count;
+			other._node_count = _node_count;
+			_node_count = tmp_node_count;
+
+			tmp_header = other._header;
+			other._header = _header;
+			_header = tmp_header;
 		}
 
 		/* printer: */
@@ -516,6 +522,11 @@ namespace	ft
 		    puts("");
 		}
 
+		size_type		get_size(void) const
+		{
+			return (_node_count);
+		}
+
 	private:
 
 		node 	*_root(void)
@@ -537,6 +548,7 @@ namespace	ft
 		allocator_type	_alloc;
 		key_compare		_comp;
 		node			*_header;
+		size_type		_node_count;
 	};
 };
 
