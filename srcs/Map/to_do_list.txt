@@ -30,16 +30,16 @@ Créer un Red black tree avec des méthodes etc,
 	|V|segfault delete inexistant value.
 
 MAP:
-*| |Member classes:
-	| |value_compare.
+*|V|Member classes:
+	|V|value_compare.
 
-*| |Member functions:
-	| |Constructors:
-		| |default.
-		| |copy.
-		| |it.
-	| |Destructor.
-	| |operator=.
+*|V|Member functions:
+	|V|Constructors:
+		|V|default.
+		|V|copy.
+		|V|it.
+	|V|Destructor.
+	|V|operator=.
 
 *|V|Element access:
 	|V|operator[].
@@ -55,22 +55,22 @@ MAP:
 	|V|size.
 	| |max_size.
 
-*| |Modifiers:
-	| |clear.
+*|V|Modifiers:
+	|V|clear.
 	|V|insert.
 	|V|erase.
 	|V|swap.
 
-*| |Lookup:
-	| |count.
-	| |find.
-	| |equal_range.
-	| |lower_bound.
-	| |upper_bound.
+*|V|Lookup:
+	|V|count.
+	|V|find.
+	|V|equal_range.
+	|V|lower_bound.
+	|V|upper_bound.
 
-*| |Observers:
-	| |key_comp.
-	| |value_comp.
+*|V|Observers:
+	|V|key_comp.
+	|V|value_comp.
 
 *| |Non-member functions:
 	| |operators.

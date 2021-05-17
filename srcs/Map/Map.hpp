@@ -66,7 +66,21 @@ namespace	ft
 
 			explicit map(const Compare& comp = Compare(), const Allocator& alloc = Allocator())
 				: _alloc(alloc), _comp(comp), _rbt(comp, alloc)
-			{};
+			{}
+
+			template <class InputIt>
+			map(InputIt first, InputIt last, const Compare &comp = Compare(), const Allocator& alloc = Allocator())
+				: _alloc(alloc), _comp(comp), _rbt(comp, alloc)
+			{
+				insert(first, last);
+			}
+
+			map(const map &other)
+				: _alloc(other._alloc), _comp(other._comp), _rbt(_comp, _alloc)
+			{
+				if (!(other.empty()))
+					insert(other.begin(), other.last());
+			}
 
 			/* Destructors: */
 
@@ -74,6 +88,16 @@ namespace	ft
 			{};
 
 			/* operator= */
+
+			map&	operator=(const map &other)
+			{
+				if (&other == this)
+					return (*this);
+				clear();
+				if (!(other.empty()))
+					insert(other.begin(), other.last());
+				return (*this);
+			}
 
 			/* Element access: */
 
@@ -200,7 +224,65 @@ namespace	ft
 
 			/* Lookup: */
 
+			size_type	count(const Key& key) const
+			{
+				if (_rbt.search_node(key) == nullptr)
+					return (0);
+				else
+					return (1);
+			}
+
+			iterator		find(const Key& key)
+			{
+				return (_rbt.find(key));
+			}
+
+			const_iterator	find(const Key& key) const
+			{
+				return (_rbt.find(key));
+			}
+
+			std::pair<iterator,iterator>	equal_range( const Key& key )
+			{
+				return(make_pair(_rbt.lower_bound(key), _rbt.upper_bound(key)));
+			}
+
+			std::pair<const_iterator,const_iterator> equal_range( const Key& key ) const
+			{
+				return(make_pair(_rbt.lower_bound(key), _rbt.upper_bound(key)));
+			}
+
+			iterator		lower_bound(const Key &key)
+			{
+				return (_rbt.lower_bound(key));
+			}
+
+			const_iterator	lower_bound(const Key &key) const
+			{
+				return (_rbt.lower_bound(key));
+			}
+
+			iterator		upper_bound(const Key &key)
+			{
+				return (_rbt.upper_bound(key));
+			}
+
+			const_iterator	upper_bound(const Key &key) const
+			{
+				return (_rbt.upper_bound(key));
+			}
+
 			/* Observers: */
+
+			key_compare		key_comp() const
+			{
+				return (key_compare());
+			}
+
+			value_compare	value_comp() const
+			{
+				return (value_compare(key_compare()));
+			}
 
 			void 		print_tree(void)
 			{

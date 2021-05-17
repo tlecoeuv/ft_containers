@@ -41,6 +41,18 @@ int		main()
 
 	test.print_tree();
 
+	std::cout << "count 2: " << test.count(2) << std::endl;
+	std::cout << "count 20: " << test.count(20) << std::endl;
+
+	std::cout << "find 9: " << (*(test.find(9))).first << std::endl;
+
+	std::cout << "lower bound 6: " << (*(test.lower_bound(6))).first << std::endl;
+	std::cout << "lower bound 5: " << (*(test.lower_bound(5))).first << std::endl;
+	std::cout << "upper bound 6: " << (*(test.upper_bound(6))).first << std::endl;
+	std::cout << "upper bound 5: " << (*(test.upper_bound(5))).first << std::endl;
+	std::pair<ft::map<int, int>::iterator, ft::map<int, int>::iterator>	eq = test.equal_range(6);
+	std::cout << "equal bound 6: " << (*(eq.first)).first << ", " << (*(eq.second)).first << std::endl;
+
 	test.erase(test.begin());
 	for (ft::map<int, int>::iterator it = test.begin(); it != test.end(); it++)
 		std::cout << " "<< (*it).first;

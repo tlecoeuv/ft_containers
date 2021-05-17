@@ -59,8 +59,6 @@ namespace	ft
 			delete _header;
 		}
 
-	public:
-
 		node	*new_node(const value_type &p, color c)
 		{
 			node	*res = new node;
@@ -92,7 +90,7 @@ namespace	ft
 
 		/* search */
 
-		node	*search_node(key_type k)
+		node	*search_node(const key_type k) const
 		{
 			node	*n = _root();
 			while (!n->is_leaf())
@@ -494,6 +492,88 @@ namespace	ft
 			_header = tmp_header;
 		}
 
+		/* lookup */
+
+		iterator	find(const Key &key)
+		{
+			node *n = search_node(key);
+
+			if (n == nullptr)
+				return (end());
+			else
+				return (iterator(n, _header));
+		}
+
+		const_iterator	find(const Key& key) const
+		{
+			node *n = search_node(key);
+
+			if (n == nullptr)
+				return (end());
+			else
+				return (const_iterator(n, _header));
+		}
+
+		iterator		lower_bound(const Key& key)
+		{
+			for (iterator it = begin(); it != end(); it++)
+			{
+				if (_comp((*it).first, key) == false)
+				{
+					if (_comp(key, (*it).first) == false)
+						return (it);
+					else
+						return (--it);
+				}
+			}
+			return (end());
+		}
+
+		const_iterator	lower_bound(const Key& key) const
+		{
+			for (const_iterator it = begin(); it != end(); it++)
+			{
+				if (_comp((*it).first, key) == false)
+				{
+					if (_comp(key, (*it).first) == false)
+						return (it);
+					else
+						return (--it);
+				}
+			}
+			return (end());
+		}
+
+		iterator		upper_bound(const Key& key)
+		{
+			for (iterator it = begin(); it != end(); it++)
+			{
+				if (_comp((*it).first, key) == false)
+				{
+					if (_comp(key, (*it).first) == false)
+						return (++it);
+					else
+						return (it);
+				}
+			}
+			return (end());
+		}
+
+		const_iterator		upper_bound(const Key& key) const
+		{
+			for (const_iterator it = begin(); it != end(); it++)
+			{
+				if (_comp((*it).first, key) == false)
+				{
+					if (_comp(key, (*it).first) == false)
+						return (++it);
+					else
+						return (it);
+				}
+			}
+			return (end());
+		}
+
 		/* printer: */
 
 		void print_tree_helper(node *n, int indent)
@@ -537,17 +617,17 @@ namespace	ft
 
 	private:
 
-		node 	*_root(void)
+		node 	*_root(void) const
 		{
 			return (_header->parent);
 		}
 
-		node	*_leftmost(void)
+		node	*_leftmost(void) const
 		{
 			return (_header->left);
 		}
 
-		node	*_rightmost(void)
+		node	*_rightmost(void) const
 		{
 			return (_header->right);
 		}
