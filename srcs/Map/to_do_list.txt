@@ -72,6 +72,6 @@ MAP:
 	|V|key_comp.
 	|V|value_comp.
 
-*| |Non-member functions:
-	| |operators.
-	| |swap.
+*|V|Non-member functions:
+	|V|operators.
+	|V|swap.
