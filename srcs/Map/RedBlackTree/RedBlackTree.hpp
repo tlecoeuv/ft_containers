@@ -162,7 +162,10 @@ namespace	ft
 				{
 					int		comp_result = _comp(p.first, n->pair->first);
 					if (p.first == n->pair->first)
+					{
+						destructor_helper(inserted_node);
 						return (std::make_pair(iterator(n, _header), false));
+					}
 					else if (comp_result == true)
 					{
 						if (n->left->is_leaf())
@@ -449,6 +452,10 @@ namespace	ft
 		void 	clear(void)
 		{
 			destructor_helper(_root());
+			_header->right = _header;
+			_header->left = _header;
+			_header->parent = nullptr;
+			_node_count = 0;
 		}
 
 		/* destroy: */
@@ -463,7 +470,10 @@ namespace	ft
 				destructor_helper(n->left);
 
 			if (n->pair != nullptr)
+			{
 				_alloc.deallocate(n->pair, 1);
+				n->pair = nullptr;
+			}
 			delete n;
 			n = nullptr;
 		}
@@ -517,8 +527,6 @@ namespace	ft
 		void print_tree(void)
 		{
 		    print_tree_helper(_root(), 0);
-			std::cout << "right: " << _rightmost()->pair->first << std::endl;
-			std::cout << "left: " << _leftmost()->pair->first << std::endl;
 		    puts("");
 		}
 

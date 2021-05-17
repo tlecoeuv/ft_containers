@@ -202,6 +202,11 @@ namespace	ft
 
 			/* Observers: */
 
+			void 		print_tree(void)
+			{
+				_rbt.print_tree();
+			}
+
 		private:
 
 			allocator_type								_alloc;
