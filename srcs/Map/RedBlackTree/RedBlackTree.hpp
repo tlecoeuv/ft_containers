@@ -96,7 +96,7 @@ namespace	ft
 			while (!n->is_leaf())
 			{
 				int	comp_result = _comp(k, n->pair->first);
-				if (k == n->pair->first)
+				if (comp_result == false && !_comp(n->pair->first, k))
 					return (n);
 				else if (comp_result == true)
 					n = n->left;
@@ -159,7 +159,7 @@ namespace	ft
 				while (1)
 				{
 					int		comp_result = _comp(p.first, n->pair->first);
-					if (p.first == n->pair->first)
+					if (comp_result == false && !_comp(n->pair->first, p.first))
 					{
 						destructor_helper(inserted_node);
 						return (std::make_pair(iterator(n, _header), false));
