@@ -262,6 +262,12 @@ namespace	ft
 			node	*replacement;
 			node	*x;
 
+			if (_node_count == 1)
+			{
+				delete_last(n);
+				return ;
+			}
+
 			if (n == _leftmost())
 				_header->left = n->parent;
 			else if (n == _rightmost())
@@ -302,13 +308,24 @@ namespace	ft
 			}
 		}
 
+		void	delete_last(node *n)
+		{
+			delete n->left;
+			delete n->right;
+			_alloc.deallocate(n->pair, 1);
+			delete n;
+			_header->parent = nullptr;
+			_header->left = _header;
+			_header->right = _header;
+		}
+
 		void 	delete_and_replace(node *n, node *replacement, node *x)
 		{
 			if (replacement->is_leaf() && x->is_leaf())
 				replace_node(n, replacement);
 			else if (replacement == x)
 				replace_node(n, replacement);
-			else								//peut etre leaks.
+			else
 			{
 				replace_node(replacement, x);
 				replace_node(n, replacement);

@@ -39,7 +39,7 @@ int		main()
 	std::cout << "test contains " << test.size() << " elements.\n";
 	std::cout << "test.empty(): " << test.empty() << std::endl;
 
-	test.print_tree();
+	test.print();
 
 	std::cout << "count 2: " << test.count(2) << std::endl;
 	std::cout << "count 20: " << test.count(20) << std::endl;
@@ -80,4 +80,12 @@ int		main()
 
 	test.clear();
 	std::cout << test.size() << std::endl;
+
+	test.insert(std::pair<int, int>(7, 0));
+	test.insert(std::pair<int, int>(3, 0));
+	test.print();
+	for (ft::map<int, int>::iterator it = test.begin(); it != test.end(); it++)
+		std::cout << " "<< (*it).first;
+	std::cout << std::endl;
+	test.erase(test.begin(), test.end());
 }

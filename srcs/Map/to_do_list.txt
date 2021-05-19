@@ -50,10 +50,10 @@ MAP:
 	|V|rbegin.
 	|V|rend.
 
-*| |Capacity:
+*|V|Capacity:
 	|V|empty.
 	|V|size.
-	| |max_size.
+	|V|max_size.
 
 *|V|Modifiers:
 	|V|clear.

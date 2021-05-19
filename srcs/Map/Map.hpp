@@ -79,7 +79,7 @@ namespace	ft
 				: _alloc(other._alloc), _comp(other._comp), _rbt(_comp, _alloc)
 			{
 				if (!(other.empty()))
-					insert(other.begin(), other.last());
+					insert(other.begin(), other.end());
 			}
 
 			/* Destructors: */
@@ -95,7 +95,7 @@ namespace	ft
 					return (*this);
 				clear();
 				if (!(other.empty()))
-					insert(other.begin(), other.last());
+					insert(other.begin(), other.end());
 				return (*this);
 			}
 
@@ -160,6 +160,12 @@ namespace	ft
 				return (_rbt.get_size());
 			}
 
+			size_type		max_size(void) const
+			{
+				return (allocator_type().max_size());
+			}
+
+
 			/* Modifiers: */
 
 			void 	clear(void)
@@ -196,16 +202,18 @@ namespace	ft
 
 			void 		erase(iterator first, iterator last)
 			{
+				RBT_node<value_type>	*to_delete;
 				while (first != last)
 				{
-					_rbt.delete_node(first._node);
+					to_delete = first._node;
 					first++;
+					_rbt.delete_node(to_delete);
 				}
 			}
 
 			size_type	erase(const key_type& key)
 			{
-				RBT_node<value_type>	to_delete = _rbt.search_node(key);
+				RBT_node<value_type>	*to_delete = _rbt.search_node(key);
 				if (to_delete == nullptr)
 					return 0;
 				else
@@ -284,7 +292,7 @@ namespace	ft
 				return (value_compare(key_compare()));
 			}
 
-			void 		print_tree(void)
+			void 		print(void)
 			{
 				_rbt.print_tree();
 			}
