@@ -294,6 +294,11 @@ namespace ft
 			listNode<T>	*ptr;
 			listNode<T> *ret;
 
+			if (pos == --end())
+			{
+				pop_back();
+				return (begin());
+			}
 			ptr = pos._node;
 			ret = ptr->next;
 			ptr->previous->next = ptr->next;

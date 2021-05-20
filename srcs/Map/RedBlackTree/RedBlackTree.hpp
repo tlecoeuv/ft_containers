@@ -267,11 +267,18 @@ namespace	ft
 				delete_last(n);
 				return ;
 			}
-
 			if (n == _leftmost())
+			{
 				_header->left = n->parent;
+				if (n == _root())
+					_header->left = n->right;
+			}
 			else if (n == _rightmost())
+			{
 				_header->right = n->parent;
+				if (n == _root())
+					_header->right = n->left;
+			}
 
 			if (n->left->is_leaf() && n->right->is_leaf())
 			{
@@ -317,6 +324,7 @@ namespace	ft
 			_header->parent = nullptr;
 			_header->left = _header;
 			_header->right = _header;
+			_node_count--;
 		}
 
 		void 	delete_and_replace(node *n, node *replacement, node *x)
@@ -361,10 +369,9 @@ namespace	ft
 		void 	choose_case(node *x)
 		{
 			node	*w = x->sibling();
-
 			if (x->color == RED)
 				delete_case0(x);
-			else
+			else if (w != nullptr)
 			{
 				if (w->color == RED)
 					delete_case1(x, w);
@@ -540,7 +547,10 @@ namespace	ft
 					if (_comp(key, (*it).first) == false)
 						return (it);
 					else
-						return (--it);
+					{
+						it--;
+						return (it);
+					}
 				}
 			}
 			return (end());

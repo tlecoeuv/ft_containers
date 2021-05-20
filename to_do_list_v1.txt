@@ -34,7 +34,6 @@ http://www.cplusplus.com/reference/memory/allocator_traits/
 | |Faire les Makefile.
 
 | |faire les programmes de test:
-	| |trouver le ~modèle.
 	| |Map.
 	| |List.
 	| |Vector.

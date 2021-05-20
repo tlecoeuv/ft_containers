@@ -1,0 +1,1132 @@
+################# TESTS ORIGINAL LIST #################
+vec.size():	0
+vec.max_size():	768614336404564650
+vec.empty():	1
+
+print content with iterarors:
+
+lst.front():	0
+lst.back():	0
+
+vec.size():	5
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	3
+*it:	1234
+*it:	2
+*it:	10
+*it:	45
+
+lst.front():	3
+lst.back():	45
+
+erasing 3rd value...
+return value of erase: 45
+vec.size():	4
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	3
+*it:	1234
+*it:	2
+*it:	45
+
+return value of erase end: 3
+vec.size():	3
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	3
+*it:	1234
+*it:	2
+
+return value of erase begin: 1234
+vec.size():	2
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1234
+*it:	2
+
+push front and push back values: 
+vec.size():	7
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	66
+*it:	42
+*it:	1234
+*it:	2
+*it:	9999
+*it:	45
+*it:	333333
+
+erase begin+2 to begin+5: 
+return value of erase range: 45
+vec.size():	4
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	66
+*it:	42
+*it:	45
+*it:	333333
+
+print lst2: 
+vec.size():	6
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+*it:	333333
+*it:	949494902
+
+print lst3: 
+vec.size():	6
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+*it:	333333
+*it:	949494902
+
+swap lst lst2: 
+print lst: 
+vec.size():	6
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+*it:	333333
+*it:	949494902
+
+print lst2: 
+vec.size():	4
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	66
+*it:	42
+*it:	45
+*it:	333333
+
+print lst4(lst.begin(), lst.end()): 
+vec.size():	6
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+*it:	333333
+*it:	949494902
+
+lst4.resize(9, 654321): 
+vec.size():	9
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+*it:	333333
+*it:	949494902
+*it:	654321
+*it:	654321
+*it:	654321
+
+lst4.resize(4): 
+vec.size():	4
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+
+insert value at position 4: 
+return value of insert: 999
+vec.size():	5
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+*it:	999
+
+insert value at position 2: 
+return value of insert: 777
+vec.size():	6
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	777
+*it:	42
+*it:	45
+*it:	999
+
+print content with iterarors:
+*it:	66
+*it:	42
+*it:	45
+*it:	333333
+*it:	543
+*it:	78979
+*it:	12344
+
+insert values at position 4: 
+vec.size():	11
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	777
+*it:	42
+*it:	80
+*it:	80
+*it:	80
+*it:	80
+*it:	80
+*it:	45
+*it:	999
+
+insert lst2 at position 5: 
+vec.size():	18
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	777
+*it:	42
+*it:	80
+*it:	66
+*it:	42
+*it:	45
+*it:	333333
+*it:	543
+*it:	78979
+*it:	12344
+*it:	80
+*it:	80
+*it:	80
+*it:	80
+*it:	45
+*it:	999
+
+return value of erase lst2 begin to end: 0
+vec.size():	0
+vec.max_size():	768614336404564650
+vec.empty():	1
+
+print content with iterarors:
+
+
+
+
+******************** TESTS OPERATIONS ********************
+********** LST **********
+vec.size():	16
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+*it:	333333
+*it:	949494902
+*it:	1
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	7
+*it:	8
+*it:	9
+*it:	10
+
+********** LST2 **********
+vec.size():	15
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	7
+*it:	8
+*it:	9
+*it:	10
+*it:	11
+*it:	12
+*it:	13
+*it:	14
+*it:	15
+
+********** SPLICE 1 value **********
+it: 333333
+it2: 13
+********** LST **********
+vec.size():	17
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+*it:	13
+*it:	333333
+*it:	949494902
+*it:	1
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	7
+*it:	8
+*it:	9
+*it:	10
+
+********** LST2 **********
+vec.size():	14
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	7
+*it:	8
+*it:	9
+*it:	10
+*it:	11
+*it:	12
+*it:	14
+*it:	15
+
+********** SPLICE 5 values **********
+it: 8
+it2: 14
+********** LST **********
+vec.size():	22
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+*it:	13
+*it:	333333
+*it:	949494902
+*it:	1
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	7
+*it:	8
+*it:	9
+*it:	10
+*it:	8
+*it:	9
+*it:	10
+*it:	11
+*it:	12
+
+rit: 12
+
+********** LST2 **********
+vec.size():	9
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	7
+*it:	14
+*it:	15
+
+********** REMOVE 8s FROM LST **********
+vec.size():	20
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+*it:	13
+*it:	333333
+*it:	949494902
+*it:	1
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	7
+*it:	9
+*it:	10
+*it:	9
+*it:	10
+*it:	11
+*it:	12
+
+********** REMOVE 10s FROM LST **********
+vec.size():	18
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+*it:	13
+*it:	333333
+*it:	949494902
+*it:	1
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	7
+*it:	9
+*it:	9
+*it:	11
+*it:	12
+
+********** REMOVE 12s FROM LST **********
+vec.size():	17
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+*it:	13
+*it:	333333
+*it:	949494902
+*it:	1
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	7
+*it:	9
+*it:	9
+*it:	11
+
+********** REMOVE 1s FROM LST **********
+vec.size():	16
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1010101
+*it:	66
+*it:	42
+*it:	45
+*it:	13
+*it:	333333
+*it:	949494902
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	7
+*it:	9
+*it:	9
+*it:	11
+
+********** REVERSE LST **********
+vec.size():	16
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	11
+*it:	9
+*it:	9
+*it:	7
+*it:	6
+*it:	5
+*it:	4
+*it:	3
+*it:	2
+*it:	949494902
+*it:	333333
+*it:	13
+*it:	45
+*it:	42
+*it:	66
+*it:	1010101
+
+vec.size():	19
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	11
+*it:	9
+*it:	9
+*it:	7
+*it:	6
+*it:	5
+*it:	4
+*it:	3
+*it:	2
+*it:	949494902
+*it:	333333
+*it:	13
+*it:	45
+*it:	42
+*it:	66
+*it:	1010101
+*it:	2
+*it:	2
+*it:	2
+
+********** UNIQUE LST **********
+vec.size():	16
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	11
+*it:	9
+*it:	7
+*it:	6
+*it:	5
+*it:	4
+*it:	3
+*it:	2
+*it:	949494902
+*it:	333333
+*it:	13
+*it:	45
+*it:	42
+*it:	66
+*it:	1010101
+*it:	2
+
+vec.size():	23
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	11
+*it:	9
+*it:	7
+*it:	6
+*it:	5
+*it:	4
+*it:	3
+*it:	2
+*it:	949494902
+*it:	333333
+*it:	13
+*it:	45
+*it:	42
+*it:	66
+*it:	1010101
+*it:	2
+*it:	2
+*it:	2
+*it:	2
+*it:	5
+*it:	6
+*it:	911
+*it:	1
+
+********** UNIQUE LST TEST 2 **********
+vec.size():	20
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	11
+*it:	9
+*it:	7
+*it:	6
+*it:	5
+*it:	4
+*it:	3
+*it:	2
+*it:	949494902
+*it:	333333
+*it:	13
+*it:	45
+*it:	42
+*it:	66
+*it:	1010101
+*it:	2
+*it:	5
+*it:	6
+*it:	911
+*it:	1
+
+vec.size():	22
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	11
+*it:	11
+*it:	11
+*it:	9
+*it:	7
+*it:	6
+*it:	5
+*it:	4
+*it:	3
+*it:	2
+*it:	949494902
+*it:	333333
+*it:	13
+*it:	45
+*it:	42
+*it:	66
+*it:	1010101
+*it:	2
+*it:	5
+*it:	6
+*it:	911
+*it:	1
+
+********** UNIQUE LST TEST 3 **********
+vec.size():	20
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	11
+*it:	9
+*it:	7
+*it:	6
+*it:	5
+*it:	4
+*it:	3
+*it:	2
+*it:	949494902
+*it:	333333
+*it:	13
+*it:	45
+*it:	42
+*it:	66
+*it:	1010101
+*it:	2
+*it:	5
+*it:	6
+*it:	911
+*it:	1
+
+********** UNIQUE LST PREDICATE **********
+vec.size():	11
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	11
+*it:	6
+*it:	949494902
+*it:	333333
+*it:	13
+*it:	45
+*it:	66
+*it:	1010101
+*it:	2
+*it:	911
+*it:	1
+
+********** SORT LST **********
+vec.size():	11
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1
+*it:	2
+*it:	6
+*it:	11
+*it:	13
+*it:	45
+*it:	66
+*it:	911
+*it:	333333
+*it:	1010101
+*it:	949494902
+
+********** SORT LST comp **********
+vec.size():	11
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	949494902
+*it:	1010101
+*it:	333333
+*it:	911
+*it:	66
+*it:	45
+*it:	13
+*it:	11
+*it:	6
+*it:	2
+*it:	1
+
+********** REVERSE LST **********
+vec.size():	11
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1
+*it:	2
+*it:	6
+*it:	11
+*it:	13
+*it:	45
+*it:	66
+*it:	911
+*it:	333333
+*it:	1010101
+*it:	949494902
+
+********** MERGE LST LST2 **********
+vec.size():	20
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1
+*it:	1
+*it:	2
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	6
+*it:	7
+*it:	11
+*it:	13
+*it:	14
+*it:	15
+*it:	45
+*it:	66
+*it:	911
+*it:	333333
+*it:	1010101
+*it:	949494902
+
+********** LST2 **********
+vec.size():	0
+vec.max_size():	768614336404564650
+vec.empty():	1
+
+print content with iterarors:
+
+********** LST2 ASSIGN(6, 111) **********
+vec.size():	6
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+
+********** MERGE LST LST2 comp **********
+vec.size():	26
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	1
+*it:	1
+*it:	2
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	6
+*it:	7
+*it:	11
+*it:	13
+*it:	14
+*it:	15
+*it:	45
+*it:	66
+*it:	911
+*it:	333333
+*it:	1010101
+*it:	949494902
+
+********** SORT LST **********
+vec.size():	26
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	1
+*it:	1
+*it:	2
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	6
+*it:	7
+*it:	11
+*it:	13
+*it:	14
+*it:	15
+*it:	45
+*it:	66
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	911
+*it:	333333
+*it:	1010101
+*it:	949494902
+
+********** LST2 ASSIGN(3, 222) **********
+vec.size():	3
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	222
+*it:	222
+*it:	222
+
+********** REVERSE LST **********
+vec.size():	26
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	949494902
+*it:	1010101
+*it:	333333
+*it:	911
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	66
+*it:	45
+*it:	15
+*it:	14
+*it:	13
+*it:	11
+*it:	7
+*it:	6
+*it:	6
+*it:	5
+*it:	4
+*it:	3
+*it:	2
+*it:	2
+*it:	1
+*it:	1
+
+********** MERGE LST LST2 comp **********
+vec.size():	29
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	949494902
+*it:	1010101
+*it:	333333
+*it:	911
+*it:	222
+*it:	222
+*it:	222
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	111
+*it:	66
+*it:	45
+*it:	15
+*it:	14
+*it:	13
+*it:	11
+*it:	7
+*it:	6
+*it:	6
+*it:	5
+*it:	4
+*it:	3
+*it:	2
+*it:	2
+*it:	1
+*it:	1
+
+********** SORT EMPTY LST2 **********
+vec.size():	0
+vec.max_size():	768614336404564650
+vec.empty():	1
+
+print content with iterarors:
+
+********** LST UNIQUE **********
+vec.size():	19
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	949494902
+*it:	1010101
+*it:	333333
+*it:	911
+*it:	222
+*it:	111
+*it:	66
+*it:	45
+*it:	15
+*it:	14
+*it:	13
+*it:	11
+*it:	7
+*it:	6
+*it:	5
+*it:	4
+*it:	3
+*it:	2
+*it:	1
+
+********** PRINT REVERSE ITERATOR LST **********
+vec.size():	19
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with reverse iterarors:
+*it:	1
+*it:	2
+*it:	3
+*it:	4
+*it:	5
+*it:	6
+*it:	7
+*it:	11
+*it:	13
+*it:	14
+*it:	15
+*it:	45
+*it:	66
+*it:	111
+*it:	222
+*it:	911
+*it:	333333
+*it:	1010101
+*it:	949494902
+
+********** LST REMOVE IF ODD **********
+vec.size():	7
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	949494902
+*it:	222
+*it:	66
+*it:	14
+*it:	6
+*it:	4
+*it:	2
+
+********** LST2 **********
+vec.size():	0
+vec.max_size():	768614336404564650
+vec.empty():	1
+
+print content with iterarors:
+
+********** LST2 ASSIGN (5, 999) **********
+vec.size():	5
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	999
+*it:	999
+*it:	999
+*it:	999
+*it:	999
+
+********** LST SPLICE LST2 **********
+vec.size():	12
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	999
+*it:	999
+*it:	999
+*it:	999
+*it:	999
+*it:	949494902
+*it:	222
+*it:	66
+*it:	14
+*it:	6
+*it:	4
+*it:	2
+
+********** LST2 **********
+vec.size():	0
+vec.max_size():	768614336404564650
+vec.empty():	1
+
+print content with iterarors:
+
+********** LST5 **********
+vec.size():	12
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	999
+*it:	999
+*it:	999
+*it:	999
+*it:	999
+*it:	949494902
+*it:	222
+*it:	66
+*it:	14
+*it:	6
+*it:	4
+*it:	2
+
+********** ERASE LST5 **********
+vec.size():	0
+vec.max_size():	768614336404564650
+vec.empty():	1
+
+print content with iterarors:
+
+********** ADD VALUES TO LST5 **********
+vec.size():	3
+vec.max_size():	768614336404564650
+vec.empty():	0
+
+print content with iterarors:
+*it:	200
+*it:	100
+*it:	300
+
+********** CLEAR LST5 **********
+vec.size():	0
+vec.max_size():	768614336404564650
+vec.empty():	1
+
+print content with iterarors:
+
+vec.size():	0
+vec.max_size():	768614336404564650
+vec.empty():	1
+
+print content with iterarors:
+
+
+
+
+******************** TESTS RELATIONAL OPERATORS ********************
+foo and bar are not equal
+foo is less than bar
+foo is less than or equal to bar
+
+a and b are equal
+b and c are not equal
+b is less than c
+c is greater than b
+a is less than or equal to b
+a is greater than or equal to b
+c is greater than d
