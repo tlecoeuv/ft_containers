@@ -543,15 +543,7 @@ namespace	ft
 			for (iterator it = begin(); it != end(); it++)
 			{
 				if (_comp((*it).first, key) == false)
-				{
-					if (_comp(key, (*it).first) == false)
-						return (it);
-					else
-					{
-						it--;
-						return (it);
-					}
-				}
+					return (it);
 			}
 			return (end());
 		}
@@ -561,12 +553,7 @@ namespace	ft
 			for (const_iterator it = begin(); it != end(); it++)
 			{
 				if (_comp((*it).first, key) == false)
-				{
-					if (_comp(key, (*it).first) == false)
-						return (it);
-					else
-						return (--it);
-				}
+					return (it);
 			}
 			return (end());
 		}

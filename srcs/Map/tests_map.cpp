@@ -6,7 +6,7 @@
 /*   By: rofernan <rofernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 18:47:18 by rofernan          #+#    #+#             */
-/*   Updated: 2021/05/20 13:05:30 by tlecoeuv         ###   ########.fr       */
+/*   Updated: 2021/05/20 16:15:47 by tlecoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,31 +155,26 @@ int main(void)
 	print_content_iterator(mp);
 
 	std::cout << "********** LOWER & UPPER BOUND **********" << std::endl;
-	ft::map<std::string,int> mymap;
-	ft::map<std::string,int>::iterator itlow,itup;
-	mymap["a"] = 20;
-	mymap["d"] = 80;
-	mymap["e"] = 100;
-	mymap["g"] = 111234;
-	mymap["i"] = 67;
-	mymap["r"] = 87;
-	mymap["u"] = 32;
-
-	print_content_iterator(mp);
+	ft::map<char,int> mymap;
+	ft::map<char,int>::iterator itlow,itup;
+	mymap['a'] = 20;
+	mymap['d'] = 80;
+	mymap['e'] = 100;
+	mymap['g'] = 111234;
+	mymap['i'] = 67;
+	mymap['r'] = 87;
+	mymap['u'] = 32;
 
 	// mymap.print();
-	itlow=mymap.lower_bound("b");
-	std::cout << "itlow: " << itlow->first << std::endl;
-	itup=mymap.upper_bound("s");
-	std::cout << "yo 2" << std::endl;
-	std::cout << "itup: " << itup->first << std::endl;
+	itlow=mymap.lower_bound('b');
+	itup=mymap.upper_bound('s');
 	mymap.erase(itlow,itup);
-	std::cout << "erased" << std::endl;
 	// mymap.print();
+	print_content_iterator(mymap);
 	print_cap(mymap);
 	print_content_iterator(mymap);
 
-/*	std::cout << "********** EQUAL RANGE **********" << std::endl;
+	std::cout << "********** EQUAL RANGE **********" << std::endl;
 	ft::map<char,int> mymap2;
 	mymap2['a']=10;
 	mymap2['b']=20;
@@ -203,13 +198,13 @@ int main(void)
 	std::cout << "MYMAP\n";
 	print_content_iterator(mymap);
 	std::cout << "MYMAP2\n";
-	print_content_iterator(mymap2);*/
+	print_content_iterator(mymap2);
 
 	/* RELATIONAL OPERATORS */
 
 	std::cout << "\n\n\n******************** TESTS RELATIONAL OPERATORS ********************\n";
 
-/*	ft::map<char,int> foo,bar;
+	ft::map<char,int> foo,bar;
 	foo['a']=100;
 	foo['b']=200;
 	bar['a']=10;
@@ -219,7 +214,7 @@ int main(void)
 	if (foo< bar) std::cout << "foo is less than bar\n";
 	if (foo> bar) std::cout << "foo is greater than bar\n";
 	if (foo<=bar) std::cout << "foo is less than or equal to bar\n";
-	if (foo>=bar) std::cout << "foo is greater than or equal to bar\n";*/
+	if (foo>=bar) std::cout << "foo is greater than or equal to bar\n";
 
     return (0);
 }

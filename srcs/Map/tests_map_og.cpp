@@ -6,7 +6,7 @@
 /*   By: rofernan <rofernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 18:47:25 by rofernan          #+#    #+#             */
-/*   Updated: 2020/12/12 18:47:27 by rofernan         ###   ########.fr       */
+/*   Updated: 2021/05/20 16:10:46 by tlecoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int main(void)
 	std::cout << "********** MP INSERT EXISTING ELEMENT **********" << std::endl;
 	ret = mp.insert(std::make_pair("i", 10));
 	std::cout << "return insert: " << ret.first->first << " -> " << ret.first->second << " - bool: " << ret.second << std::endl;
-	
+
 	// mp.print();
 	print_cap(mp);
 	print_content_iterator(mp);
@@ -164,6 +164,7 @@ int main(void)
 	itup=mymap.upper_bound ('s');
 	mymap.erase(itlow,itup);
 	// mymap.print();
+	print_content_iterator(mymap);
 	print_cap(mymap);
 	print_content_iterator(mymap);
 
@@ -175,7 +176,7 @@ int main(void)
 	std::pair<std::map<char,int>::iterator, std::map<char,int>::iterator> ret2;
 	ret2 = mymap2.equal_range('b');
 	std::cout << "lower bound points to: ";
-	std::cout << ret2.first->first << " => " << ret2.first->second << '\n';	
+	std::cout << ret2.first->first << " => " << ret2.first->second << '\n';
 	std::cout << "upper bound points to: ";
 	std::cout << ret2.second->first << " => " << ret2.second->second << '\n';
 
@@ -201,13 +202,13 @@ int main(void)
 	foo['a']=100;
 	foo['b']=200;
 	bar['a']=10;
-	bar['z']=1000;	
+	bar['z']=1000;
 	if (foo==bar) std::cout << "foo and bar are equal\n";
 	if (foo!=bar) std::cout << "foo and bar are not equal\n";
 	if (foo< bar) std::cout << "foo is less than bar\n";
 	if (foo> bar) std::cout << "foo is greater than bar\n";
 	if (foo<=bar) std::cout << "foo is less than or equal to bar\n";
-	if (foo>=bar) std::cout << "foo is greater than or equal to bar\n";	
+	if (foo>=bar) std::cout << "foo is greater than or equal to bar\n";
 
     return (0);
 }

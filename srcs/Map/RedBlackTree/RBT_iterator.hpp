@@ -14,7 +14,7 @@ namespace	ft
 		typedef	ptrdiff_t				difference_type;
 		typedef	size_t					size_type;
 
-		RBT_iterator(void) : _node(nullptr)
+		RBT_iterator(void) : _node(nullptr), _header(nullptr)
 		{}
 
 		RBT_iterator(RBT_node<value_type> *x, RBT_node<value_type> *h)
@@ -40,6 +40,7 @@ namespace	ft
 		RBT_iterator	&operator=(const RBT_iterator& it)
 		{
 			_node = it._node;
+			_header = it._header;
 			return (*this);
 		}
 
