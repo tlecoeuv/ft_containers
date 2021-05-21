@@ -1,6 +1,8 @@
 #ifndef QUEUE_HPP
 # define QUEUE_HPP
 
+#include "../List/List.hpp"
+
 namespace ft
 {
 	template <class T, class Container = list<T> >
@@ -39,7 +41,7 @@ namespace ft
 			return (_ctnr.back());
 		}
 
-		const value_type	&back()
+		const value_type	&back() const
 		{
 			return (_ctnr.back());
 		}

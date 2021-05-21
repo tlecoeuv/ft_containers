@@ -153,20 +153,22 @@ namespace	ft
 		reference		at(size_type pos)
 		{
 			if (pos >= _size)
-				throw (std::out_of_range(
+				throw (std::out_of_range("vector"));
+				/*throw (std::out_of_range(
 					"vector::_M_range_check: __n (which is "
 					+ std::to_string(pos) + ") >= this->size() (which is "
-					+ std::to_string(_size) + ")"));
+					+ std::to_string(_size) + ")"));*/
 			return(_tab[pos]);
 		};
 
 		const_reference	at(size_type pos) const
 		{
 			if (pos >= _size)
-				throw (std::out_of_range(
+				throw (std::out_of_range("vector"));
+				/*throw (std::out_of_range(
 					"vector::_M_range_check: __n (which is "
 					+ std::to_string(pos) + ") >= this->size() (which is "
-				 	+ std::to_string(_size) + ")"));
+				 	+ std::to_string(_size) + ")"));*/
 			return(_tab[pos]);
 		};
 
@@ -317,8 +319,8 @@ namespace	ft
 			size_t dist = distance(begin(), pos);
 			if ((_size + count) > _capacity)
 			{
-				if ((_size * 2) >= (_size + count))
-					reserve(_size * 2);
+				if ((_capacity * 2) >= (_size + count))
+					reserve(_capacity * 2);
 				else
 					reserve(_size + count);
 			}

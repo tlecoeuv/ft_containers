@@ -6,7 +6,7 @@
 /*   By: rofernan <rofernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 18:47:25 by rofernan          #+#    #+#             */
-/*   Updated: 2021/05/20 16:10:46 by tlecoeuv         ###   ########.fr       */
+/*   Updated: 2021/05/21 10:57:28 by tlecoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ template <class S, class T>
 void	print_cap(std::map<S, T> mp)
 {
 	std::cout << "mp.size():\t" << mp.size() << std::endl;
-	std::cout << "mp.max_size():\t" << mp.max_size() << std::endl;
+//	std::cout << "mp.max_size():\t" << mp.max_size() << std::endl;
 	std::cout << "mp.empty():\t" << mp.empty() << std::endl;
 	std::cout << std::endl;
 }

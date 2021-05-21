@@ -1,6 +1,8 @@
 #ifndef STACK_HPP
 # define STACK_HPP
 
+#include "../List/List.hpp"
+
 namespace ft
 {
 	template <class T, class Container = list<T> >
@@ -24,22 +26,12 @@ namespace ft
 			return (_ctnr.size());
 		}
 
-		value_type			&front()
-		{
-			return (_ctnr.front());
-		}
-
-		const value_type	&front() const
-		{
-			return (_ctnr.front());
-		}
-
-		value_type			&back()
+		value_type			&top()
 		{
 			return (_ctnr.back());
 		}
 
-		const value_type	&back()
+		const value_type	&top() const
 		{
 			return (_ctnr.back());
 		}

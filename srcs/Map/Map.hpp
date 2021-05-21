@@ -162,7 +162,8 @@ namespace	ft
 
 			size_type		max_size(void) const
 			{
-				return (allocator_type().max_size());
+				std::allocator<ft::RBT_node<value_type> >	node_alloc;
+				return (node_alloc.max_size());
 			}
 
 
