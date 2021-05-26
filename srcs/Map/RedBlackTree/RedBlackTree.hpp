@@ -51,11 +51,14 @@ namespace	ft
 			_header->parent = nullptr;
 			_header->left = _header;
 			_header->right = _header;
+			_header->pair = _alloc.allocate(1);
+			_alloc.construct(_header->pair, value_type());
 		}
 
 		~RedBlackTree(void)
 		{
 			destructor_helper(_root());
+			_alloc.deallocate(_header->pair, 1);
 			delete _header;
 		}
 

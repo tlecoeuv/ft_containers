@@ -6,7 +6,7 @@
 /*   By: rofernan <rofernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:40 by rofernan          #+#    #+#             */
-/*   Updated: 2020/12/16 14:42:42 by rofernan         ###   ########.fr       */
+/*   Updated: 2021/05/26 11:54:32 by tlecoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	print_content(std::list<T> lst)
 {
 	std::cout << "print content with iterarors:\n";
 	for (typename std::list<T>::iterator it = lst.begin(); it != lst.end(); it++)
-		std::cout << "*it:\t" << *it << std::endl;
+		std::cout << "|" << *it << "|";
 	std::cout << std::endl;
 }
 
@@ -62,7 +62,7 @@ void	print_reverse(std::list<T> lst)
 {
 	std::cout << "print content with reverse iterarors:\n";
 	for (typename std::list<T>::reverse_iterator it = lst.rbegin(); it != lst.rend(); it++)
-		std::cout << "*it:\t" << *it << std::endl;
+		std::cout << "|" << *it << "|";
 	std::cout << std::endl;
 }
 
@@ -92,7 +92,7 @@ int main(void)
 	it = lst.begin();
 	for (int i = 0; i < 3; i++)
 		it++;
-	
+
 	std::cout << "return value of erase: " << *lst.erase(it) << std::endl;
 
 	print_cap(lst);
