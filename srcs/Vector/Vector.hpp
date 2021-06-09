@@ -63,12 +63,10 @@ namespace	ft
 		};
 
 		vector (const vector &other)
-			: _alloc(other._alloc), _size(other._size), _capacity(other._size)
+			: _alloc(other._alloc), _size(0), _capacity(0), _tab(nullptr)
 		{
-			_tab = _alloc.allocate(_capacity);
-
-			for (size_type i = 0; i < _size; i++)
-				_alloc.construct(&_tab[i], other[i]);
+			reserve(other._size);
+			assign(other.begin(), other.end());
 		}
 
 		/* Destructor: */
@@ -153,11 +151,11 @@ namespace	ft
 		reference		at(size_type pos)
 		{
 			if (pos >= _size)
-				throw (std::out_of_range("vector"));
-				/*throw (std::out_of_range(
+				//throw (std::out_of_range("vector"));
+				throw (std::out_of_range(
 					"vector::_M_range_check: __n (which is "
 					+ std::to_string(pos) + ") >= this->size() (which is "
-					+ std::to_string(_size) + ")"));*/
+					+ std::to_string(_size) + ")"));
 			return(_tab[pos]);
 		};
 
@@ -307,7 +305,7 @@ namespace	ft
 				reserve(_size * 2);
 			_size++;
 			for (size_t i = _size - 1; i > dist; i--)
-				_tab[i] = _tab[i - 1];
+				_alloc.construct(&_tab[i], _tab[i - 1]);
 			_alloc.construct(&_tab[dist], value);
 			return(iterator(_tab + dist));
 		};
@@ -319,17 +317,13 @@ namespace	ft
 			size_t dist = distance(begin(), pos);
 			if ((_size + count) > _capacity)
 			{
-				if ((_capacity * 2) >= (_size + count))
-					reserve(_capacity * 2);
+				if ((_size * 2) >= (_size + count))
+					reserve(_size * 2);
 				else
 					reserve(_size + count);
 			}
-			_size += count;
-			for (size_t i = _size - 1; i >= dist + count; i--)
-				_tab[i] = _tab[i - count];
-			for (size_t i = (dist + count - 1); i > dist; i--)
-				_alloc.construct(&_tab[i], value);
-			_alloc.construct(&_tab[dist], value);
+			for (size_t i = 0; i < count; i++)
+				insert(begin() + dist, value);
 		};
 
 		template <class InputIt>
@@ -347,16 +341,13 @@ namespace	ft
 				else
 					reserve(_size + count);
 			}
-			_size += count;
-			for (size_t i = _size - 1; i >= dist + count; i--)
-				_tab[i] = _tab[i - count];
-			for (size_t i = (dist + count - 1); i > dist; i--)
+			while (first != last)
 			{
-				last--;
-				_alloc.construct(&_tab[i], *last);
+				insert(begin() + dist, *first);
+				dist++;
+				first++;
 			}
-			last--;
-			_alloc.construct(&_tab[dist], *last);
+
 		};
 
 		iterator	erase(iterator pos)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_list.cpp                                     :+:      :+:    :+:   */
+/*   test_ft_list.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rofernan <rofernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:33 by rofernan          #+#    #+#             */
-/*   Updated: 2021/05/26 11:56:53 by tlecoeuv         ###   ########.fr       */
+/*   Updated: 2021/06/09 14:40:33 by tlecoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ template <class T>
 void	print_cap(ft::list<T> &lst)
 {
 	std::cout << "vec.size():\t" << lst.size() << std::endl;
-	std::cout << "vec.max_size():\t" << lst.max_size() << std::endl;
+	//std::cout << "vec.max_size():\t" << lst.max_size() << std::endl;
 	std::cout << "vec.empty():\t" << lst.empty() << std::endl;
 	std::cout << std::endl;
 }
@@ -45,8 +45,8 @@ void	print_content(ft::list<T> lst)
 {
 	std::cout << "print content with iterarors:\n";
 	for (typename ft::list<T>::iterator it = lst.begin(); it != lst.end(); it++)
-		std::cout << "| " << *it << " ";
-	std::cout << " |" << std::endl;
+		std::cout << "|" << *it << "|";
+	std::cout << std::endl;
 }
 
 template <class T>
@@ -63,7 +63,7 @@ void	print_reverse(ft::list<T> lst)
 	std::cout << "print content with reverse iterarors:\n";
 	for (typename ft::list<T>::reverse_iterator it = lst.rbegin(); it != lst.rend(); it++)
 		std::cout << "|" << *it << "|";
-	std::cout << " |" << std::endl;
+	std::cout << std::endl;
 }
 
 int main(void)

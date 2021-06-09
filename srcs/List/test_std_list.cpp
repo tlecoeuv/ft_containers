@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_list_og.cpp                                  :+:      :+:    :+:   */
+/*   test_std_list.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rofernan <rofernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:40 by rofernan          #+#    #+#             */
-/*   Updated: 2021/05/26 11:54:32 by tlecoeuv         ###   ########.fr       */
+/*   Updated: 2021/06/09 14:38:28 by tlecoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ template <class T>
 void	print_cap(std::list<T> lst)
 {
 	std::cout << "vec.size():\t" << lst.size() << std::endl;
-	std::cout << "vec.max_size():\t" << lst.max_size() << std::endl;
+	//std::cout << "vec.max_size():\t" << lst.max_size() << std::endl;
 	std::cout << "vec.empty():\t" << lst.empty() << std::endl;
 	std::cout << std::endl;
 }

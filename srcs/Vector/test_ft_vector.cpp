@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_vector.cpp                                   :+:      :+:    :+:   */
+/*   test_ft_vector.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rofernan <rofernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 17:10:05 by rofernan          #+#    #+#             */
-/*   Updated: 2020/11/27 17:10:07 by rofernan         ###   ########.fr       */
+/*   Updated: 2021/06/09 12:34:05 by tlecoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -292,7 +292,7 @@ int main(void)
 	print_cap(vecst);
 	print_content_iterator(vecst);
 	print_access(vecst);
-	
+
 	std::cout << "********** INSERT STRING VECTOR **********\n";
 	std::cout << "return value insert: " << *vecst.insert(vecst.begin() + 1, "world") << std::endl;
 	print_cap(vecst);
