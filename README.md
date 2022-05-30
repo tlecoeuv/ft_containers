@@ -1,6 +1,6 @@
 # ft_containers
 
-In this project, I had to implement a few container types of the C++ standard template
+In this 42 project, I had to implement a few container types of the C++ standard template
 library:
 - Vector
 - List
